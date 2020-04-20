@@ -215,3 +215,11 @@ const episodesSeasonThree = {
 test("Render Episodes Component", () => {
   render(<Episodes episodes={[]} />);
 });
+
+test("see if you can map the episodes", () => {
+  const { rerender, queryAllByTestId } = render(<Episodes episodes={[]} />);
+  rerender(<Episodes episodes={episodesSeasonThree.data._embedded.episodes} />);
+
+  const list = queryAllByTestId(/episodes/i);
+  expect(list).toHaveLength(8);
+});
