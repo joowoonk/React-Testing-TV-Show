@@ -36,6 +36,7 @@ export default function App() {
       <h1>{show.name}</h1>
       {parse(show.summary)}
       <Dropdown
+        test-dataid="dropDown"
         options={Object.keys(seasons)}
         onChange={handleSelect}
         value={selectedSeason || "Select a season"}
